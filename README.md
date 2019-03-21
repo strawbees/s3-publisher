@@ -14,7 +14,7 @@ npm install --save @strawbees/s3-publisher
 
 Make sure `S3_KEY` and `S3_SECRET` (AWS credentials) are set amongst your environment variables. You can provide a environment config file `.env`.
 
-Optionally you can set `BUCKET` and this will override the option `--bucket` if given.
+Optionally you can set `S3_BUCKET` and `S3_REGION` and this will override the option `--bucket` and `--region` if given.
 
 An example of `.env` file would be:
 
@@ -22,6 +22,7 @@ An example of `.env` file would be:
 S3_KEY="123"
 S3_SECRET="iwatchpeppapig"
 S3_BUCKET="my-bucket-on-s3"
+S3_REGION="us-west-1"
 ```
 
 ### Client API
@@ -35,6 +36,7 @@ Options:
   -b, --bucket <bucket>     S3 Bucket name. Required `BUCKET` in your environment variables.
   -s, --source <path>       Local folder path. Required.
   -d, --destination <path>  Path on S3 Bucket (Prefix).
+  -r, --region <region>     S3 Bucket region.
   --sync                    Sync local folder with bucket. This will remove files on the S3 Bucket that are not on `--source`.
   -v, --version             output the version number
   -h, --help                output usage information
@@ -54,4 +56,4 @@ Assuming your project has `s3-publisher` installed, it should be available to `n
 }
 ```
 
-If you don't want to commit the name of your bucket, set `BUCKET` environment variable with the name of your bucket and just skip the `--bucket` option.
+If you don't want to commit the name of your bucket, set `S3_BUCKET` environment variable with the name of your bucket and just skip the `--bucket` option. The same applies to the `--region` option and the `S3_REGION` environment variable.

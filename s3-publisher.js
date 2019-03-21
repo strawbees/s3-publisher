@@ -10,6 +10,7 @@ program
 	.option('-b, --bucket <bucket>', 'S3 Bucket name. Required `BUCKET` in your environment variables.')
 	.option('-s, --source <path>', 'Local folder path. Required.')
 	.option('-d, --destination <path>', 'Path on S3 Bucket (Prefix).')
+	.option('-r, --region <region>', 'S3 Bucket region.')
 	.option('--sync', 'Sync local folder with bucket. This will remove files on the S3 Bucket that are not on `--source`.')
 	.description(`Command line tool for publishing to Amazon S3.`)
 	.version(pkg.version, '-v, --version')
@@ -19,6 +20,7 @@ program.parse(process.argv)
 const SOURCE = program.source
 const DESTINATION = program.destination
 const BUCKET = process.env.S3_BUCKET ? process.env.S3_BUCKET : program.bucket
+const REGION = process.env.S3_REGION ? process.env.S3_REGION : program.region
 const SYNC = program.sync || false
 const ACCESS_KEY = process.env.S3_KEY
 const SECRET = process.env.S3_SECRET
@@ -34,7 +36,7 @@ if (!SOURCE) {
 	return
 }
 
-const client = getClient(ACCESS_KEY, SECRET)
+const client = getClient(ACCESS_KEY, SECRET, REGION)
 const uploader = client.uploadDir({
 	localDir: SOURCE,
 	deleteRemoved: SYNC,
