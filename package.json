@@ -1,5 +1,5 @@
 {
-    "name": "s3-publisher",
+    "name": "@strawbees/s3-publisher",
     "version": "0.1.0",
     "description": "Command line tool for publishing to Amazon S3",
     "main": "s3-publisher.js",
@@ -18,6 +18,7 @@
     "license": "MIT",
     "dependencies": {
         "@monolambda/s3": "^1.0.2",
-        "commander": "^2.19.0"
+        "commander": "^2.19.0",
+        "dotenv": "^7.0.0"
     }
 }
