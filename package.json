@@ -18,6 +18,7 @@
     "dependencies": {
         "@monolambda/s3": "^1.0.2",
         "commander": "^2.19.0",
-        "dotenv": "^7.0.0"
+        "dotenv": "^7.0.0",
+        "mime": ">=1.4.1"
     }
 }
