@@ -5,8 +5,8 @@ module.exports = (key, secret, region) => {
 		maxAsync: 20,
 		s3RetryCount: 3,
 		s3RetryDelay: 1000,
-		multipartUploadThreshold: 20971520,
-		multipartUploadSize: 15728640,
+		multipartUploadThreshold: 2097152999,
+		multipartUploadSize: 1572864000,
 		s3Options: {
 			accessKeyId: key,
 			secretAccessKey: secret,
