@@ -4,7 +4,7 @@ module.exports = (localFile, source) => {
 	let CacheControl
 	if (
 		path.basename(localFile) === 'service-worker.js'
-		|| localFile.indexOf( path.join(source, 'workbox-') !== -1 )
+		|| localFile.indexOf(path.join(source, 'workbox-') !== -1)
 	) {
 		// never cache the service workers
 		CacheControl = 'no-cache'
